@@ -392,36 +392,41 @@ public class Arrays_Methods {
 //		for + odds its the other way, for example +110 means wager 100 to get 110 profit plus the original 100 back if the pick is correct.
 //		For example if someone always made wagers at +100 odds and they were correct 50% of the time, they would break even, if they were correct more often than 50%
 //		they would profit in the long term, if they were successful less than 50% of the time they would lose money in the long term.
-			int odds = 0;
+			boolean run1 = true;
 			System.out.print("Welcome, this application will calculate the average success rate\n"
-					+ "needed to break-even based on someone's average betting odds.\n"
-					+ "Please enter a sports betting odd(integer greater than 100 or less than -100): ");
-			odds = kb.nextInt();
-			if(odds>=100) {
-			System.out.println("The average success rate needed to break-even with average betting odds\n"
-					+ "+" + odds +" is " + methodForQuestion13(odds)+ "%.");
-				}
-			else if(odds <-100) {
-				System.out.println("The average success rate needed to break-even with average betting odds\n"
-						+ odds +" is " + methodForQuestion13(odds)+ "%.");
-				}
-			else {
-				System.out.println("Invalid input.");
-				}
+						+ "needed to break-even based on someone's average betting odds.\n");
+			
+			while(run1) {
+				int odds = 0;
+				System.out.println("Please enter a sports betting odd(integer >= 100 or < -100): ");
+				odds = kb.nextInt();
+				if(odds>=100) {
+					System.out.print("The average success rate needed to break-even with average betting odds\n"
+						+ "+" + odds +" is " + methodForQuestion13(odds)+ "%.");
+					run1 = false;	
+					}
+				else if(odds <-100) {
+					System.out.println("The average success rate needed to break-even with average betting odds\n"
+							+ odds +" is " + methodForQuestion13(odds)+ "%.");
+					run1 = false;
+					}
+				else {
+					System.out.println("Invalid input.");
+					}
+			}
 			
 	}
 	
-	private static int methodForQuestion13(int odds) {
-		int success = 0;
-		int base = 100;
-		System.out.println(odds);
+	//Issue here widening and narrowing, made all variables doubles to solve issue
+	private static double methodForQuestion13(int odds) {
+		double success = 0;
+		double base = 100;
 		if(odds >= 100) {
 				success = (base/(odds+base));
 			}
 		else if(odds < -100) {
 				success = ((-1*odds)/((-1*odds)+base));
 			}
-		System.out.println(success);
 		return success*100;
 	}	
 	
