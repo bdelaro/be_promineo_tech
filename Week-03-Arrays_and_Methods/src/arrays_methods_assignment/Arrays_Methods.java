@@ -384,8 +384,45 @@ public class Arrays_Methods {
 	private static void question13() {
 		System.out.println("Question 13: ");
 //		13.	Create a method of your own that solves a problem. In comments, write what the method does and why you created it.
+//		The following method calculates the break-even point of sports betting in terms of average success rate and average betting odds
+//		Success rate is how many picks one gets correct out of all picks made, betting odds are represented in different ways but the
+//		most common way to see them listed is,ex. -150 or +110, -150 translates to 3/2 odds or probability of success of 60% (3/5), or +110 
+//		translates to 1.1/1 or probability of success of ~48%(1/2.1), the greater the number next to the minus the expected probability of success increases as well,
+//		and vice versa for when it's plus. The odds are based on $100 wagers, so -150 means 150 must be wagered to get $100 profit plus the original 150 back if the pick is correct,
+//		for + odds its the other way, for example +110 means wager 100 to get 110 profit plus the original 100 back if the pick is correct.
+//		For example if someone always made wagers at +100 odds and they were correct 50% of the time, they would break even, if they were correct more often than 50%
+//		they would profit in the long term, if they were successful less than 50% of the time they would lose money in the long term.
+			int odds = 0;
+			System.out.print("Welcome, this application will calculate the average success rate\n"
+					+ "needed to break-even based on someone's average betting odds.\n"
+					+ "Please enter a sports betting odd(integer greater than 100 or less than -100): ");
+			odds = kb.nextInt();
+			if(odds>=100) {
+			System.out.println("The average success rate needed to break-even with average betting odds\n"
+					+ "+" + odds +" is " + methodForQuestion13(odds)+ "%.");
+				}
+			else if(odds <-100) {
+				System.out.println("The average success rate needed to break-even with average betting odds\n"
+						+ odds +" is " + methodForQuestion13(odds)+ "%.");
+				}
+			else {
+				System.out.println("Invalid input.");
+				}
+			
 	}
 	
-	
+	private static int methodForQuestion13(int odds) {
+		int success = 0;
+		int base = 100;
+		System.out.println(odds);
+		if(odds >= 100) {
+				success = (base/(odds+base));
+			}
+		else if(odds < -100) {
+				success = ((-1*odds)/((-1*odds)+base));
+			}
+		System.out.println(success);
+		return success*100;
+	}	
 	
 }
