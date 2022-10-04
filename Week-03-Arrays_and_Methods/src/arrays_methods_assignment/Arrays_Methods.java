@@ -403,12 +403,12 @@ public class Arrays_Methods {
 				if(odds>=100) {
 					System.out.print("The average success rate needed to break-even with average betting odds\n"
 						+ "+" + odds +" is " + methodForQuestion13(odds)+ "%.");
-					run1 = false;	
+					run1 = false; //could use break; as well	
 					}
 				else if(odds <-100) {
 					System.out.println("The average success rate needed to break-even with average betting odds\n"
 							+ odds +" is " + methodForQuestion13(odds)+ "%.");
-					run1 = false;
+					run1 = false; //could use break; as well
 					}
 				else {
 					System.out.println("Invalid input.");
@@ -416,8 +416,8 @@ public class Arrays_Methods {
 			}
 			
 	}
-	
-	//Issue here widening and narrowing, made all variables doubles to solve issue
+  	
+//	Issue here with widening and narrowing, made all variables doubles to solve issue
 	private static double methodForQuestion13(int odds) {
 		double success = 0;
 		double base = 100;
