@@ -12,16 +12,35 @@ public class Player {
 	public Player() {
 		this.score = 0;
 	}
-	
+
 	public void describe() {
-
+		System.out.print(name + ": ");
+		System.out.println(score);
+		
 	}
 
-	public void flip() {
+	public Card flip() {
 
+		Card c = playerHand.get(playerHand.size() - 1);
+		playerHand.remove(playerHand.size() - 1);
+
+		return c;
 	}
 
-	public void draw() {
+	public Card drawTopCardofPlayerHand() {
+		Card c = null;
+		if(!playerHand.isEmpty()) {
+			c = playerHand.get(playerHand.size()-1);
+			}
+		else {
+			System.out.println("List is empty.");
+			}
+		return c;
+		
+	}
+
+	public void draw(Deck d) {
+		this.playerHand.add(d.draw());
 
 	}
 
@@ -40,14 +59,16 @@ public class Player {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
+
 	public List<Card> getPlayerHand() {
 		return playerHand;
 	}
 
-	public void setPlayerHand(List<Card> playerHand) {
-		this.playerHand = playerHand;
+	public void getCardFromHand(int i) {
+		if (!playerHand.isEmpty()) {
+			System.out.print(playerHand.get(i).describe() + ", ");
+		} else {
+			System.out.println("List is empty.");
+		}
 	}
-
-
 }
