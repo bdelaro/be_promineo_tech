@@ -16,7 +16,7 @@ public class Player {
 	public void describe() {
 		System.out.print(name + ": ");
 		System.out.println(score);
-		
+
 	}
 
 	public Card flip() {
@@ -29,14 +29,13 @@ public class Player {
 
 	public Card drawTopCardofPlayerHand() {
 		Card c = null;
-		if(!playerHand.isEmpty()) {
-			c = playerHand.get(playerHand.size()-1);
-			}
-		else {
+		if (!playerHand.isEmpty()) {
+			c = playerHand.get(playerHand.size() - 1);
+		} else {
 			System.out.println("List is empty.");
-			}
+		}
 		return c;
-		
+
 	}
 
 	public void draw(Deck d) {

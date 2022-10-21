@@ -2,11 +2,11 @@ package final_project;
 
 import java.util.Scanner;
 
-public class PlayWar {
+public class Play {
 
 	static Scanner kb = new Scanner(System.in);
 
-	public void play() {
+	public void war() {
 		Deck one = new Deck();
 		Player p1 = new Player(), p2 = new Player();
 
@@ -135,7 +135,7 @@ public class PlayWar {
 		System.out.println("Score");
 		p1.describe();
 		p2.describe();
-		System.out.println("Ties: " + (26-(p1.getScore() + p2.getScore())));
+		System.out.println("Ties: " + (26 - (p1.getScore() + p2.getScore())));
 		System.out.println();
 
 		if (p1.getScore() > p2.getScore()) {

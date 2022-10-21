@@ -29,8 +29,8 @@ public class Deck {
 
 	public Card draw() {
 		Card c = cards.get(cards.size() - 1);
-			cards.remove(cards.size() - 1);
-		
+		cards.remove(cards.size() - 1);
+
 		return c;
 	}
 
