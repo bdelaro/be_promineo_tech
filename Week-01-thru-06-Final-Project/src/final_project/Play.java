@@ -148,4 +148,7 @@ public class Play {
 
 	}
 
+	public void poker() {
+		
+	}
 }
